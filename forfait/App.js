@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button , ScrollView, FlatList} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button , ScrollView, FlatList, TouchableOpacity} from 'react-native';
 import myPackListData from './data/myPackList';
 import myHistoryData from './data/myHistory';
+import { Header, Footer, Home } from './components';
 
 export default function App() {
   const [email, setEmail] = useState();
@@ -10,6 +11,9 @@ export default function App() {
   const [myPackList, setMyPackList] = useState(myPackListData)
   const [myHistory, setMyHistory] = useState(myHistoryData)
  
+  const pressHandler = (id)=>{
+    console.log(id)
+  }
 
   return (
     <View style={styles.container}>
@@ -43,17 +47,17 @@ export default function App() {
           )
         }}
       /> */}
-      <FlatList 
+      {/* <FlatList 
         numColumns={2}
         data={myHistory}
         renderItem={({item})=>{
           return(
-            <View >
+            <TouchableOpacity onPress={()=>pressHandler(item.key)} >
                 <Text style={styles.myHistory}>{item.title}</Text>
-            </View>
+            </TouchableOpacity>
           )
         }}
-      />
+      /> */}
         {/* {myHistory.map((item)=>{
           return(
             <View key={item.key}>
@@ -61,6 +65,9 @@ export default function App() {
             </View>
           )
         })}   */}
+        <Header />
+        <Home />
+        <Footer />
     </View>
     
   );
