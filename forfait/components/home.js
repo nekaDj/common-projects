@@ -1,20 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button , ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button , ScrollView, FlatList, TouchableOpacity, Alert} from 'react-native';
 import packListData from '../data/packList';
 
 export default function App() {
     const [packList, setPackList] = useState(packListData)
 
   const pressHandler = (id)=>{
-    console.log(id)
+    console.log(id);
+    // Alert.alert("Title alert", `Fuck I clekd on ${id}`,[{text: "Understood", onPress: ()=>console.log("alert closed")}])
   }
 
   return (
     <View style={styles.container}>
         <Text style={styles.packageText}>Mes services</Text>
         <Text style={styles.packageText}>Nos packages</Text>
-        <FlatList 
+        {/* <FlatList 
         data={packList}
         renderItem={({item})=>{
           return(
@@ -23,7 +24,7 @@ export default function App() {
             </TouchableOpacity>
           )
         }}
-      />
+        /> */}
     </View>
     
   );

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button , ScrollView, FlatList, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button , ScrollView, FlatList, TouchableOpacity, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import myPackListData from './data/myPackList';
 import myHistoryData from './data/myHistory';
 import { Header, Footer, Home } from './components';
@@ -16,6 +16,7 @@ export default function App() {
   }
 
   return (
+    <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
     <View style={styles.container}>
       {/* <View style={styles.header}>
         <Text>Header</Text>
@@ -69,7 +70,7 @@ export default function App() {
         <Home />
         <Footer />
     </View>
-    
+    </TouchableWithoutFeedback>
   );
 }
 
